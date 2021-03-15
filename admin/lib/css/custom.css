@@ -1,0 +1,102 @@
+
+ .button_nav{
+     color: white;
+ }
+
+ .button_nav:hover{
+     color: #007bff;
+ }
+
+ .dropdown-item:hover{
+     background-color: #007bff;
+     color: white;
+ }
+
+ .placement_recherche_accueil{
+     padding-top: 5%;
+     padding-left: 20%;
+     font-family: Verdana;
+ }
+
+ .blue{
+     color: #007bff;
+ }
+
+.placement_titre_accueil{
+    padding-top: 1%;
+    padding-left: 60%;
+    font-family: Verdana;
+    font-size: 2vw;
+    color: white;
+    font-weight: bolder;
+}
+
+.button_acceuil{
+    color: white;
+}
+
+.recherche_syntaxe{
+    color: white;
+    font-family: Verdana;
+    font-size: 18px;
+}
+
+h2{
+    font-family: Poppins, sans-serif;
+    font-weight: bold;
+    font-size: 2rem;
+}
+
+h3{
+    font-family: Poppins, sans-serif;
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: left;
+}
+
+ .card-title{
+     font-family: Poppins, sans-serif;
+     font-weight: bold;
+     font-size: 1.5rem;
+     color:  #353a40;
+     text-align: center;
+}
+
+ .card-text{
+     font-family: Poppins, sans-serif;
+     font-size: 1.5rem;
+     color: #6E6E6E;
+ }
+
+ .card-reponse{
+     font-family: Poppins, sans-serif;
+     font-weight: bold;
+     font-size: 1.5rem;
+     color: #353a40;
+     text-align: center;
+ }
+
+ .card-prix{
+     font-family: Poppins, sans-serif;
+     font-weight: bold;
+     font-size: 1.5rem;
+     color: red;
+ }
+
+ .card-foot{
+     font-family: Poppins, sans-serif;
+     font-weight: bold;
+     font-size: 1.5rem;
+     text-align: center;
+     color: #007bff;
+ }
+
+ .breadcrump2{
+     font-family: Poppins, sans-serif;
+     font-weight: bold;
+     font-size: 1.3rem;
+ }
+
+ .card{
+     margin-bottom: 1em;
+ }
