@@ -1,4 +1,3 @@
-<br>
 <?php
 $liste = new NewvoitureBD($cnx);
 $voiture = $liste->getNewVoiture();
@@ -9,17 +8,21 @@ $moto = $liste2->getNewMoto();
 $nbr2 = count($moto);
 ?>
 
-<h2 class="center"><span class="blue">Fraichement arrivée </span><span class="badge bg-secondary">New</span></h2>
-<section class="container">
-    <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
-        <ol class="breadcrumb breadcrump2">
-            <li class="breadcrumb-item"><a href=href="index_.php?page=accueil.php">Accueil</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Rechercher</li>
-            <li class="breadcrumb-item active" aria-current="page">News</li>
-        </ol>
-    </nav>
+<section class="py-5 text-center container ">
+    <div class="row py-lg-5">
+        <div class="col-lg-6 col-md-8 mx-auto">
+            <h2 class="fw-light titre_page ">Nouveauté</h2>
+            <p class="lead text-muted">
+                Voici toutes nos vehicules frainchement arriver. Sur demande nous pouvons vous les faire essayer sans engagement.
+            </p>
+            <p>
+                <a href="index_.php?page=voiture.php" class="btn btn-primary my-2">Voiture</a>
+                <a href="index_.php?page=moto.php" class="btn btn-secondary my-2">Moto</a>
+            </p>
+        </div>
+    </div>
 </section>
-*
+
 <?php
 $i = 0;
 $a = 0;
@@ -42,11 +45,13 @@ while($i<$nbr){
                             Puissance : <span class="card-reponse"><?php print$voiture[$i]->puissance;?> ch<?php print " ";?></span><br>
                             Boîte : <span class="card-reponse"><?php print$voiture[$i]->boite;?><?php print " ";?></span><br>
                             Kilomètre : <span class="card-reponse"><?php print$voiture[$i]->km;?> km<?php print " ";?></span><br>
-                            <span class="card-prix">Prix : <?php print$voiture[$i]->prix;?><?php print " ";?>€</span>
                         </p>
-                    </div>
-                    <div class="card-footer">
-                        <small class="text-muted"> <a class="navbar-brand card-foot" href="index_.php?page=News.php">Reserver-moi maintenant !!</a></small>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="card-prix">Prix : <?php print$voiture[$i]->prix;?><?php print " ";?>€</span>
+                            <div class="btn-group">
+                                <button type="button" onclick="window.location.href='index_.php?page=News.php';" class="btn btn-sm btn-outline-secondary btn_card">Reserver</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -69,11 +74,13 @@ if ($i<$nbr){?>
                             Puissance : <span class="card-reponse"><?php print$voiture[$i]->puissance;?> ch<?php print " ";?></span><br>
                             Boîte : <span class="card-reponse"><?php print$voiture[$i]->boite;?><?php print " ";?></span><br>
                             Kilomètre : <span class="card-reponse"><?php print$voiture[$i]->km;?> km<?php print " ";?></span><br>
-                            <span class="card-prix">Prix : <?php print$voiture[$i]->prix;?><?php print " ";?>€</span>
                         </p>
-                    </div>
-                    <div class="card-footer">
-                        <small class="text-muted"> <a class="navbar-brand card-foot" href="index_.php?page=News.php">Reserver-moi maintenant !!</a></small>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="card-prix">Prix : <?php print$voiture[$i]->prix;?><?php print " ";?>€</span>
+                            <div class="btn-group">
+                                <button type="button" onclick="window.location.href='index_.php?page=News.php';" class="btn btn-sm btn-outline-secondary btn_card">Reserver</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -103,11 +110,13 @@ while($a<$nbr2){
                                 Année : <span class="card-reponse"><?php print$moto[$a]->annee;?><?php print " ";?></span><br>
                                 Puissance : <span class="card-reponse"><?php print$moto[$a]->puissance;?> ch<?php print " ";?></span><br>
                                 Kilomètre : <span class="card-reponse"><?php print$moto[$a]->km;?> km<?php print " ";?></span><br>
-                                <span class="card-prix">Prix : <?php print$moto[$a]->prix;?><?php print " ";?>€</span>
                             </p>
-                        </div>
-                        <div class="card-footer">
-                            <small class="text-muted"> <a class="navbar-brand card-foot" href="index_.php?page=News.php">Reserver-moi maintenant !!</a></small>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="card-prix">Prix : <?php print$moto[$a]->prix;?><?php print " ";?>€</span>
+                                <div class="btn-group">
+                                    <button type="button" onclick="window.location.href='index_.php?page=News.php';" class="btn btn-sm btn-outline-secondary btn_card">Reserver</button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -130,11 +139,13 @@ while($a<$nbr2){
                                 Année : <span class="card-reponse"><?php print$moto[$a]->annee;?><?php print " ";?></span><br>
                                 Puissance : <span class="card-reponse"><?php print$moto[$a]->puissance;?> ch<?php print " ";?></span><br>
                                 Kilomètre : <span class="card-reponse"><?php print$moto[$a]->km;?> km<?php print " ";?></span><br>
-                                <span class="card-prix">Prix : <?php print$moto[$a]->prix;?><?php print " ";?>€</span>
                             </p>
-                        </div>
-                        <div class="card-footer">
-                            <small class="text-muted"> <a class="navbar-brand card-foot" href="index_.php?page=News.php">Reserver-moi maintenant !!</a></small>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="card-prix">Prix : <?php print$moto[$a]->prix;?><?php print " ";?>€</span>
+                                <div class="btn-group">
+                                    <button type="button" onclick="window.location.href='index_.php?page=News.php';" class="btn btn-sm btn-outline-secondary btn_card">Reserver</button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

@@ -1,6 +1,6 @@
 <?php
 
-class VoitureBD extends Voiture{
+class MotomarqueBD extends Moto{
 
     private $_db_; //recevoir la valeur de $cnx lors de la connexion à la Bd dans l'index
     private $_data = array();
@@ -10,13 +10,13 @@ class VoitureBD extends Voiture{
         $this->_db =$cnx;
     }
 
-    public function getVoiture(){
-        $query = "select * from voiture";
+    public function getMotomarque(){
+        $query = "select distinct marque from moto";
         $_resultset = $this->_db->prepare($query);
         $_resultset->execute();
 
         while ($d = $_resultset->fetch()){
-            $_data[] = new voiture($d);
+            $_data[] = new moto($d);
         }
         //var_dump($_data);
         return $_data;

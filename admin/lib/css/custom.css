@@ -83,14 +83,6 @@ h3{
      color: red;
  }
 
- .card-foot{
-     font-family: Poppins, sans-serif;
-     font-weight: bold;
-     font-size: 1.5rem;
-     text-align: center;
-     color: #007bff;
- }
-
  .breadcrump2{
      font-family: Poppins, sans-serif;
      font-weight: bold;
@@ -99,4 +91,19 @@ h3{
 
  .card{
      margin-bottom: 1em;
+     border: none ;
+ }
+
+ .img1_contact{
+     object-fit: cover;
+     width: 1903px;
+     height: 453px;
+ }
+
+ .container-no-overflow-x{
+     overflow-x: hidden ;
+ }
+
+ .map{
+     margin-left: 5%
  }

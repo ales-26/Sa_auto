@@ -23,14 +23,14 @@
                         <span class="button_nav">Rechercher</span>
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="index_.php?page=rechercher_voiture.php">Recherche voiture</a>
-                        <a class="dropdown-item" href="index_.php?page=rechercher_moto.php">Recherche moto</a>
+                        <a class="dropdown-item" href="index_.php?page=recherche_voiture.php">Recherche voiture</a>
+                        <a class="dropdown-item" href="index_.php?page=recherche_moto.php">Recherche moto</a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="index_.php?page=new.php">News</a>
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link " href="index_.php?page=pages404.php"><span class="button_nav">Qui somme nous ?</span></a>
+                    <a class="nav-link " href="index_.php?page=contact.php"><span class="button_nav">Qui somme nous ?</span></a>
                 </li>
             </ul>
 

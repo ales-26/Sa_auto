@@ -88,7 +88,8 @@ a{
 }
 
 .reseau{
-    margin-right: 50%;
+    margin-right: 55%;
+
 }
 
 .copyright{
@@ -104,6 +105,49 @@ a{
     font-size: 26px;
 }
 
-.center{
+.titre_page {
+    font-family: Verdana;
+}
+
+.btn_card,.btn_card2{
+    font-family: Verdana;
+    font-size: 1.2rem;
+    background-color: #007bff;
+    color: white;
+}
+
+.btn_card:hover{
+    color: white;
+    background-color: green;
+}
+
+.btn_card2:hover{
+    color: white;
+    background-color: #005bff;
+}
+
+#titre_contact{
+    font-family: Verdana;
+    font-size: 2rem;
+    font-weight: bolder;
+    color: #6E6E6E;
     text-align: center;
+}
+.text_contact{
+    text-align: center;
+    font-family: Verdana;
+    font-size: 1.3rem;
+}
+
+.text_map{
+    font-family: Verdana;
+    font-size: 1.8rem;
+    color:  white;
+    text-align: center;
+    background-color:  #353a40;
+}
+
+.img_agrand img:hover{
+    width: 110%;
+    height: 105%;
 }

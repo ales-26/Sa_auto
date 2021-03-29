@@ -1,6 +1,6 @@
 <?php
 
-class VoitureBD extends Voiture{
+class VoituremarqueBD extends Voiture{
 
     private $_db_; //recevoir la valeur de $cnx lors de la connexion à la Bd dans l'index
     private $_data = array();
@@ -10,8 +10,8 @@ class VoitureBD extends Voiture{
         $this->_db =$cnx;
     }
 
-    public function getVoiture(){
-        $query = "select * from voiture";
+    public function getVoituremarque(){
+        $query = "select distinct marque from voiture";
         $_resultset = $this->_db->prepare($query);
         $_resultset->execute();
 

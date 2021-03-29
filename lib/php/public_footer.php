@@ -20,7 +20,7 @@
                     <div class="row reseau">
                         <div class="col-lg-4 lightblue"><a href="https:\www.facebook.com"><img width=60rem src="./admin/images/logo/facebook.png"></a></div>
                         <div class="col-lg-4 cyan"><a href="https:\www.twitter.com"><img width=60rem src="./admin/images/logo/twitter.png"></a></div>
-                        <div class="col-lg-4 pink"><a href="https:\www.instagram.com"><img width=60rem src="./admin/images/logo/instagrame.png"></a></div>
+                        <div class="col-lg-4 pink"><a href="https:\www.instagram.com"><img width=70rem src="./admin/images/logo/instagrame.png"></a></div>
                     </div>
                 </div>
 
