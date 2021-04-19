@@ -1,5 +1,34 @@
+<?php
+
+if(isset($_POST['submit'])){
+    extract($_POST,EXTR_OVERWRITE);
+    $ad = new Admin_membreBD($cnx);
+    $admin = $ad->getAdmin($login, $password);
+    //var_dump($admin);
+    if($admin){
+        $_SESSION['admin']=1;
+        $_SESSION['login']= $login;
+        //print "ok";
+        ?>
+        <!-- chargement -->
+        <div class="d-flex align-items-center">
+            <span class="sr-only">Loading...</span>
+        </div>
+        <!-- redirection -->
+        <meta http-equiv="refresh": content="0;URL=./admin/index.php?page=accueil_admin.php">
+        <?php
+
+    } else {
+        $message = "Identifiants incorrects";
+    }
+}
+?>
+
+
 <div class="container">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+        <!-- Logo cliquable -->
         <a class="navbar-brand" href="index_.php?page=accueil.php">
             <img src="./admin/images/logo/Logo_page.jpg" alt="Logo"  class="d-inline-block align-top">
         </a>
@@ -7,6 +36,7 @@
             <span class="navbar-toggler-icon"></span>
         </button>
 
+        <!-- Liste bouton -->
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto ">
                 <li class="nav-item active nav nav-pills">
@@ -34,22 +64,23 @@
                 </li>
             </ul>
 
-            <form class="d-flex" method="POST" action="<?php print $_SERVER['PHP_SELF']; ?>">
+            <!-- Connexion -->
+            <form class="d-flex" action="<?php print $_SERVER['PHP_SELF'];?>" method="post" >
                 <div class="btn-group">
                     <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Connexion
                     </button>
                     <div class="dropdown-menu p-4">
-                        <form class="pt-4 py-5" >
+                        <form class="pt-4 py-5">
                             <div class="mb-3">
                                 <label for="login" class="form-label">Identifiant</label>
                                 <input type="text" class="form-control" id="login" name="login" placeholder="voiture1234" size="25">
                             </div>
                             <div class="mb-3">
-                                <label for="pass" class="form-label">Mot de passe</label>
-                                <input type="password" class="form-control" id="pass" name="pass" placeholder="*******">
+                                <label for="password" class="form-label">Mot de passe</label>
+                                <input type="password" class="form-control" id="password" name="password" placeholder="*******">
                             </div>
-                            <button type="submit" class="btn btn-primary" id="connexion" name="connexion" value="connexion">Se connecter</button>
+                            <button type="submit" class="btn btn-primary" name="submit">Se connecter</button>
                         </form>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="index_.php?page=pages404.php">Inscriptions</a>

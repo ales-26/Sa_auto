@@ -1,3 +1,4 @@
+<!-- Banniere + text -->
 <section>
     <br><img src="./admin/images/Banniere/Banniere_contact.jpg" class="img-fluid img1_contact " alt="image contact">
     <br><br>
@@ -13,6 +14,7 @@
     </p>
 </section>
 
+<!-- Map -->
 <section class="container-no-overflow-x">
     <br><br><p class="container text_contact"><b id="titre_contact">Rendez-nous visite !</b><br><br></p>
     <div class="row">
@@ -33,6 +35,7 @@
     </div>
 </section>
 
+<!-- Lien reseau -->
 <section class="container">
     <br><br><p class="container text_contact"><b id="titre_contact">Contactez-nous</b><br><br></p>
 

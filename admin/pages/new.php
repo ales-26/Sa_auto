@@ -16,8 +16,8 @@ $nbr2 = count($moto);
                 Voici toutes nos vehicules frainchement arriver. Sur demande nous pouvons vous les faire essayer sans engagement.
             </p>
             <p>
-                <a href="index_.php?page=voiture.php" class="btn btn-primary my-2">Voiture</a>
-                <a href="index_.php?page=moto.php" class="btn btn-secondary my-2">Moto</a>
+                <a href="./index.php?page=voiture.php" class="btn btn-primary my-2">Voiture</a>
+                <a href="./index.php?page=moto.php" class="btn btn-secondary my-2">Moto</a>
             </p>
         </div>
     </div>
@@ -33,7 +33,7 @@ while($i<$nbr){
             <div class="col">
                 <?php $nbr = count($voiture); ?>
                 <div class="card">
-                    <img src="./admin/images/voiture/<?php print$voiture[$i]->nom_image?>" width="250" height="400" class="card-img-top " alt="images voiture">
+                    <img src="./images/voiture/<?php print$voiture[$i]->nom_image?>" width="250" height="400" class="card-img-top " alt="images voiture">
                     <div class="card-body">
                         <h5 class="card-title">
                             <?php print $voiture[$i]->marque;?><?php print " ";?>
@@ -49,7 +49,7 @@ while($i<$nbr){
                         <div class="d-flex justify-content-between align-items-center">
                             <span class="card-prix">Prix : <?php print$voiture[$i]->prix;?><?php print " ";?>€</span>
                             <div class="btn-group">
-                                <button type="button" onclick="window.location.href='index_.php?page=News.php';" class="btn btn-sm btn-outline-secondary btn_card">Reserver</button>
+                                <p class="btn-sm btn_card">Id voiture : <?php print$voiture[$i]->id_voiture;?></p>
                             </div>
                         </div>
                     </div>
@@ -62,7 +62,7 @@ if ($i<$nbr){?>
             <div class="col">
                 <?php $nbr = count($voiture); ?>
                 <div class="card">
-                    <img src="./admin/images/voiture/<?php print$voiture[$i]->nom_image?>" width="250" height="400" class="card-img-top " alt="images voiture">
+                    <img src="./images/voiture/<?php print$voiture[$i]->nom_image?>" width="250" height="400" class="card-img-top " alt="images voiture">
                     <div class="card-body">
                         <h5 class="card-title">
                             <?php print $voiture[$i]->marque;?><?php print " ";?>
@@ -78,7 +78,7 @@ if ($i<$nbr){?>
                         <div class="d-flex justify-content-between align-items-center">
                             <span class="card-prix">Prix : <?php print$voiture[$i]->prix;?><?php print " ";?>€</span>
                             <div class="btn-group">
-                                <button type="button" onclick="window.location.href='index_.php?page=News.php';" class="btn btn-sm btn-outline-secondary btn_card">Reserver</button>
+                                <p class="btn-sm btn_card">Id voiture : <?php print$voiture[$i]->id_voiture;?></p>
                             </div>
                         </div>
                     </div>
@@ -99,7 +99,7 @@ while($a<$nbr2){
                 <div class="col">
                     <?php $nbr2 = count($moto); ?>
                     <div class="card">
-                        <img src="./admin/images/moto/<?php print$moto[$a]->nom_image?>" width="250" height="400" class="card-img-top " alt="images voiture">
+                        <img src="./images/moto/<?php print$moto[$a]->nom_image?>" width="250" height="400" class="card-img-top " alt="images voiture">
                         <div class="card-body">
                             <h5 class="card-title">
                                 <?php print $moto[$a]->marque;?><?php print " ";?>
@@ -114,7 +114,7 @@ while($a<$nbr2){
                             <div class="d-flex justify-content-between align-items-center">
                                 <span class="card-prix">Prix : <?php print$moto[$a]->prix;?><?php print " ";?>€</span>
                                 <div class="btn-group">
-                                    <button type="button" onclick="window.location.href='index_.php?page=News.php';" class="btn btn-sm btn-outline-secondary btn_card">Reserver</button>
+                                    <p class="btn-sm btn_card">Id Moto : <?php print$moto[$a]->id_moto;?></p>
                                 </div>
                             </div>
                         </div>
@@ -128,7 +128,7 @@ while($a<$nbr2){
                 <div class="col">
                     <?php $nbr2 = count($moto); ?>
                     <div class="card">
-                        <img src="./admin/images/moto/<?php print$moto[$a]->nom_image?>" width="250" height="400" class="card-img-top " alt="images voiture">
+                        <img src="./images/moto/<?php print$moto[$a]->nom_image?>" width="250" height="400" class="card-img-top " alt="images voiture">
                         <div class="card-body">
                             <h5 class="card-title">
                                 <?php print $moto[$a]->marque;?><?php print " ";?>
@@ -143,7 +143,7 @@ while($a<$nbr2){
                             <div class="d-flex justify-content-between align-items-center">
                                 <span class="card-prix">Prix : <?php print$moto[$a]->prix;?><?php print " ";?>€</span>
                                 <div class="btn-group">
-                                    <button type="button" onclick="window.location.href='index_.php?page=News.php';" class="btn btn-sm btn-outline-secondary btn_card">Reserver</button>
+                                    <p class="btn-sm btn_card">Id Moto : <?php print$moto[$a]->id_moto;?></p>
                                 </div>
                             </div>
                         </div>

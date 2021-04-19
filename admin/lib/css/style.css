@@ -151,3 +151,21 @@ a{
     width: 110%;
     height: 105%;
 }
+
+.accueil_admin{
+    overflow-x: hidden ;
+    margin-left: 2%;
+    margin-right: 2%;
+}
+
+.client{
+    font-family: Verdana;
+    font-size: 1.0rem;
+    font-weight: normal;
+}
+
+.client_admin{
+    font-family: Verdana;
+    font-size: 1.8rem;
+    color: green;
+}

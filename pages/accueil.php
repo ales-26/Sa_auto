@@ -1,27 +1,25 @@
 <?php
-$liste = new NewvoitureBD($cnx);
-$voiture = $liste->getNewVoiture();
+$liste_voit = new VoitureBD($cnx);
+$voiture = $liste_voit->getNewVoiture();
 $nbr = count($voiture);
-
-$liste2 = new NewmotoBD($cnx);
-$moto = $liste2->getNewMoto();
-$nbr2 = count($moto);
-
-$listevoiture = new VoituremarqueBD($cnx);
-$voiture2 = $listevoiture->getVoituremarque();
+$voiture2 = $liste_voit->getVoituremarque();
 $nbrvoit = count($voiture2);
 
-$listemoto = new MotomarqueBD($cnx);
+$listemoto = new MotoBD($cnx);
 $moto2 = $listemoto->getMotomarque();
 $nbrmoto = count($moto2);
+$moto = $listemoto->getNewMoto();
+$nbr2 = count($moto);
 ?>
 
 <br>
 <section class="img_dim">
+    <!-- Image banniere -->
     <article class="placement_titre_accueil">
         <span class="blue">Trouver</span> le vehicule de vos reves...
     </article>
 
+    <!-- partie recherche -->
     <article class="placement_recherche_accueil">
         <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
             <li class="nav-item" role="presentation">
@@ -31,11 +29,9 @@ $nbrmoto = count($moto2);
                 <a class="nav-link" id="pills-moto-tab" data-toggle="pill" href="#pills-moto" role="tab" aria-controls="pills-moto" aria-selected="false"><spab class="button_acceuil">Moto</spab></a>
             </li>
         </ul>
-
         <div class="tab-content recherche_syntaxe" id="pills-tabContent">
+            <!-- Section voiture -->
             <div class="tab-pane fade show active" id="pills-voiture" role="tabpanel" aria-labelledby="pills-voiture-tab">
-
-                <!-- Section voiture -->
                 <div class="col-md-5 mb-3">
                     <select class="custom-select" style="width: 200px;" id="marque" required>
                         <option value="">Marque...</option>
@@ -105,12 +101,14 @@ $nbrmoto = count($moto2);
 
 <br><br>
 <section class="container">
+    <!-- Titre -->
     <article>
         <h2>Le bonheur à porter de main...</h2>
         <h3 class="blue">Nos meilleurs ventes</h3>
     </article>
 
     <br><br>
+    <!-- Carousel -->
     <article>
         <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
@@ -131,11 +129,13 @@ $nbrmoto = count($moto2);
     </article>
 
     <br><br>
+    <!-- Titre -->
     <article>
         <h3 ><span class="blue">Les bonnes affaires </span><span class="badge bg-secondary">New</span></h3>
     </article>
 
     <br><br>
+    <!-- Affichage voiture -->
     <article>
         <div class="row row-cols-1 row-cols-md-2 g-4">
             <div class="col">

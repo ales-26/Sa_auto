@@ -1,10 +1,10 @@
 <?php
-$path="./pages/page_construction.php";
-if(file_exists($path)){
-    include ($path);
-}
+$liste_voit = new VoitureBD($cnx);
+$voiture = $liste_voit->getNewVoiture();
+$nbr = count($voiture);
+$voiture2 = $liste_voit->getVoituremarque();
+$nbrvoit = count($voiture2);
 ?>
-<!--
 <section class="py-5 text-center container ">
     <div class="row py-lg-5">
         <div class="col-lg-6 col-md-8 mx-auto">
@@ -18,123 +18,78 @@ if(file_exists($path)){
 </section>
 
 
+<form action="<?php print $_SERVER['PHP_SELF']; ?>" method="get">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 mb-3">
+                <label for="marque">Marque</label>
+                <select class="custom-select d-block w-100" id="marque_voiture" required>
+                    <option value="">Choisir...</option>
+                    <?php
+                    for($i=0;$i<$nbrvoit;$i++){
+                        ?><option value="<?php print $voiture2[$i]->marque;?>"><?php print $voiture2[$i]->marque;?></option><?php
+                    }
+                    ?>
+                </select>
+            </div>
 
-<div class="container">
-    <div class="row">
-        <div class="col-md-5 mb-3">
-            <label for="country">Country</label>
-            <select class="custom-select d-block w-100" id="country" required>
-                <option value="">Choose...</option>
-                <option>United States</option>
-            </select>
-            <div class="invalid-feedback">
-                Please select a valid country.
+            <div class="col-md-4 mb-3">
+                <label for="model_voiture">Modele</label>
+                <input type="text" class="form-control" id="model_voiture" placeholder="Golf" required>
+            </div>
+
+            <div class="col-md-4 mb-3">
+                <label for="carbu_voiture">Carburant</label>
+                <select class="custom-select d-block w-100" id="carbu_voiture" >
+                    <option value="">Carburant...</option>
+                    <option value="Essence">Essence</option>
+                    <option value="Diesel">Diesel</option>
+                    <option value="Electrique">Electrique</option>
+                    <option value="CNG">CNG</option>
+                </select>
             </div>
         </div>
 
-        <div class="col-md-8 order-md-1">
-            <h4 class="mb-3">Billing address</h4>
-            <form class="needs-validation" novalidate>
-                <div class="row">
-                    <div class="col-md-6 mb-3">
-                        <label for="firstName">First name</label>
-                        <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
-                        <div class="invalid-feedback">
-                            Valid first name is required.
-                        </div>
-                    </div>
-                    <div class="col-md-6 mb-3">
-                        <label for="lastName">Last name</label>
-                        <input type="text" class="form-control" id="lastName" placeholder="" value="" required>
-                        <div class="invalid-feedback">
-                            Valid last name is required.
-                        </div>
-                    </div>
-                </div>
+        <div class="row">
+            <div class="col-md-4 mb-3">
+                <label for="puissance_voiture">Puissance</label>
+                <input type="number" class="form-control" id="puissance_voiture" placeholder="75">
+            </div>
 
-                <div class="mb-3">
-                    <label for="username">Username</label>
-                    <div class="input-group">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text">@</span>
-                        </div>
-                        <input type="text" class="form-control" id="username" placeholder="Username" required>
-                        <div class="invalid-feedback" style="width: 100%;">
-                            Your username is required.
-                        </div>
-                    </div>
-                </div>
+            <div class="col-md-4 mb-3">
+                <label for="annee_voiture">Annee</label>
+                <input type="number" class="form-control" id="annee_voiture" placeholder="2021">
+            </div>
 
-                <div class="mb-3">
-                    <label for="email">Email <span class="text-muted">(Optional)</span></label>
-                    <input type="email" class="form-control" id="email" placeholder="you@example.com">
-                    <div class="invalid-feedback">
-                        Please enter a valid email address for shipping updates.
-                    </div>
-                </div>
-
-                <div class="mb-3">
-                    <label for="address">Address</label>
-                    <input type="text" class="form-control" id="address" placeholder="1234 Main St" required>
-                    <div class="invalid-feedback">
-                        Please enter your shipping address.
-                    </div>
-                </div>
-
-                <div class="mb-3">
-                    <label for="address2">Address 2 <span class="text-muted">(Optional)</span></label>
-                    <input type="text" class="form-control" id="address2" placeholder="Apartment or suite">
-                </div>
-
-                <div class="row">
-                    <div class="col-md-5 mb-3">
-                        <label for="country">Country</label>
-                        <select class="custom-select d-block w-100" id="country" required>
-                            <option value="">Choose...</option>
-                            <option>United States</option>
-                        </select>
-                        <div class="invalid-feedback">
-                            Please select a valid country.
-                        </div>
-                    </div>
-                    <div class="col-md-4 mb-3">
-                        <label for="state">State</label>
-                        <select class="custom-select d-block w-100" id="state" required>
-                            <option value="">Choose...</option>
-                            <option>California</option>
-                        </select>
-                        <div class="invalid-feedback">
-                            Please provide a valid state.
-                        </div>
-                    </div>
-                    <div class="col-md-3 mb-3">
-                        <label for="zip">Zip</label>
-                        <input type="text" class="form-control" id="zip" placeholder="" required>
-                        <div class="invalid-feedback">
-                            Zip code required.
-                        </div>
-                    </div>
-                </div>
-                <hr class="mb-4">
-                <div class="custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" id="same-address">
-                    <label class="custom-control-label" for="same-address">Shipping address is the same as my billing address</label>
-                </div>
-                <div class="custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" id="save-info">
-                    <label class="custom-control-label" for="save-info">Save this information for next time</label>
-                </div>
-                <hr class="mb-4">
-            </form>
+            <div class="col-md-4 mb-3">
+                <label for="km_voiture">Kilométre</label>
+                <input type="number" class="form-control" id="km_voiture" placeholder="120 000">
+            </div>
         </div>
-    </div>
 
-    <footer class="my-5 pt-5 text-muted text-center text-small">
-        <p class="mb-1">&copy; 2017-2018 Company Name</p>
-        <ul class="list-inline">
-            <li class="list-inline-item"><a href="#">Privacy</a></li>
-            <li class="list-inline-item"><a href="#">Terms</a></li>
-            <li class="list-inline-item"><a href="#">Support</a></li>
-        </ul>
-    </footer>
--->
+        <div class="row">
+            <div class="col-md-4 mb-3">
+                <label>Boite de vitesse</label>
+                <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="automatique_voiture">
+                    <label class="custom-control-label" for="automatique_voiture">Automatique</label>
+                </div>
+                <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="manuel_voiture">
+                    <label class="custom-control-label" for="manuel_voiture">Manuel</label>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-3">
+                <label for="prix_min_voiture">Prix minimum </label>
+                <input type="number" class="form-control" id="prix_min_voiture" placeholder="1 000">
+            </div>
+
+            <div class="col-md-4 mb-3">
+                <label for="prix_max_voiture">Prix maximum</label>
+                <input type="number" class="form-control" id="prix_max_voiture" placeholder="30 000">
+            </div>
+        </div>
+        <button class="btn btn-primary btn-lg btn-block" type="submit" id="rechercher_voiture">Rechercher</button>
+    </div>
+</form><br>
