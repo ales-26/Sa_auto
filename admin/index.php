@@ -1,6 +1,6 @@
 <!doctype html>
 <?php
-//index public
+//index admin
 session_start();
 include ('./lib/php/admin_liste_includes.php');
 $cnx = Connexion::getInstance($dsn,$user,$password);
@@ -36,10 +36,10 @@ $cnx = Connexion::getInstance($dsn,$user,$password);
             <section id="contenu">
                 <div id="main">
                     <?php
-                    if(isset($_SESSION['page']) && !isset($_SESSION['partie_admin'])){
+                    /*if(isset($_SESSION['page']) && !isset($_SESSION['partie_admin'])){
                         unset($_SESSION['page']);
                         $_SESSION['partie_admin']=1;
-                    }
+                    }*/
                     if(!isset($_SESSION['page'])){
                         $_SESSION['page']="accueil_admin.php";
                     }
@@ -50,7 +50,7 @@ $cnx = Connexion::getInstance($dsn,$user,$password);
                     if(file_exists($path)){
                         include ($path);
                     } else {
-                        include ('./pages/pages404.php');
+                        include ('../pages/pages404.php');
                     }
                     ?>
                 </div>

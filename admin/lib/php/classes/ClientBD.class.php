@@ -13,7 +13,6 @@ class ClientBD extends Client{
     public function getlisteclientbytel($num_client){
         try{
             $query = "select * from vue_client where tel = :num_client and type_compte = 'membre'";
-            //$query = "select liste_client_by_tel(:num_client)as retour";
             $_resultset = $this->_db->prepare($query);
             $_resultset->bindValue(':num_client', $num_client);
             $_resultset->execute();
@@ -69,4 +68,46 @@ class ClientBD extends Client{
             print "Echec ".$e->getMessage();
         }
     }
+
+    public function get_id_user_reserv($nom_user){
+        $query = "select id_client from vue_info_client where identifiant = :nom_user ";
+        $_resultset = $this->_db->prepare($query);
+        $_resultset->bindValue(':nom_user', $nom_user);
+        $_resultset->execute();
+
+        $retour =$_resultset->fetchColumn(0);
+
+        return $retour;
+    }
+
+    public function getclientbyid($id_client){
+        try{
+            $query = "select * from client where id_client = :id_client";
+            $_resultset = $this->_db->prepare($query);
+            $_resultset->bindValue(':id_client', $id_client);
+            $_resultset->execute();
+            while ($d = $_resultset->fetch()){
+                $_data[] = new client($d);
+            }
+            //var_dump($_data);
+            return $_data;
+
+        } catch(PDOException $e){
+            print "Echec de la requête : ".$e->getMessage();
+        }
+    }
+
+    public function updateclient($champ,$id,$valeur){
+        try{
+            $query = "update client set ".$champ."= :valeur where ".$champ."= :id";
+            $resultset = $this->_db->prepare($query);
+            $resultset->bindValue(':valeur', $valeur);
+            $resultset->bindValue(':id', $id);
+            $resultset->execute();
+        }catch(PDOException $e){
+            print $e->getMessage();
+        }
+    }
+
+
 }

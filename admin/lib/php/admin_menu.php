@@ -22,7 +22,7 @@
                     <a class="nav-link " href="./index.php?page=new.php"><span class="button_nav">New</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link " href="./index.php?page=reservation.php"><span class="button_nav">Reservation</span></a>
+                    <a class="nav-link "  href="./index.php?page=reservation.php"><span class="button_nav">Reservation</span></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link " href="./index.php?page=Client.php"><span class="button_nav">Client</span></a>

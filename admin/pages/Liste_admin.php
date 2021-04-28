@@ -17,12 +17,12 @@ $nbr = count($client);
         }else{$alert=2;}
     }
 ?>
-<section class="py-5 text-center container ">
+<section class="py-5 text-center container titre_page">
     <div class="row py-lg-5">
         <div class="col-lg-6 col-md-8 mx-auto">
             <h2 class="fw-light titre_page ">Listes de tous les admin</h2>
             <p class="lead text-muted">
-                Voici la liste de tous les même admin de notre site web.<br>
+                Voici la liste de tous les même admin de notre site web.
                 Vous pouvez en ajouter, en entrant l'id du futur admin.
             </p>
             <p>

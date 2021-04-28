@@ -41,6 +41,12 @@
     font-size: 18px;
 }
 
+ .recherche_syntaxe_user{
+     color: black;
+     font-family: Verdana;
+     font-size: 18px;
+ }
+
 h2{
     font-family: Poppins, sans-serif;
     font-weight: bold;

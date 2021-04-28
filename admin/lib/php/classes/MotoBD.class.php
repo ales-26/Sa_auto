@@ -145,4 +145,39 @@ class MotoBD extends Moto{
             print "Echec ".$e->getMessage();
         }
     }
+
+    public function getmarquemodelmoto($marque,$modele){
+        try {
+            $this->_db->beginTransaction();
+            $query = "select * from moto where marque = :marque and lower(modele) like lower('%".$modele."%')";
+            $resultset = $this->_db->prepare($query);
+            $resultset->bindValue(':marque', $marque);
+            $resultset->execute();
+            $data = $resultset->fetchall();
+            return $data;
+
+            $this->_db->commit();
+
+        } catch(PDOException $e){
+            print "Echec de la requête : ".$e->getMessage();
+            $_db->rollback();
+        }
+    }
+
+    public function getrecherche_rapide_moto($marque,$modele,$carbu){
+        $flag=0;
+        $query = "select * from moto where marque = :marque and lower(modele) like lower('%".$modele."%') and carburant = :carbu ";
+        $_resultset = $this->_db->prepare($query);
+        $_resultset->bindValue(':marque', $marque);
+        $_resultset->bindValue(':carbu', $carbu);
+        $_resultset->execute();
+
+        while ($d = $_resultset->fetch()){
+            $_data []= new moto($d);
+            $flag=1;
+        }
+        if($flag==1){
+            return $_data;
+        }
+    }
 }

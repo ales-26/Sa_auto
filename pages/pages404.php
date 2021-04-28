@@ -9,7 +9,7 @@
             </p>
         </div>
         <div class="col-lg-6">
-            <img src="./admin/images/logo/logo_404.jpg" class="img-fluid" alt="image">
+            <img src="./admin/images/Logo/logo_404.jpg" class="img-fluid" alt="image">
         </div>
     </div>
 </div>

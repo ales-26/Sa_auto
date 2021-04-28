@@ -149,14 +149,14 @@ class VoitureBD extends Voiture{
     }
 
 
-    /*public function getRechercheVoitureSimple($marque,$mod){
+    public function getmarquemodelvoit($marque,$modele){
         try {
             $this->_db->beginTransaction();
-            $query = "select * from voiture where marque = lower(:marque) and modele like '".$mod."%'";
+            $query = "select * from voiture where marque = :marque and lower(modele) like lower('%".$modele."%')";
             $resultset = $this->_db->prepare($query);
             $resultset->bindValue(':marque', $marque);
             $resultset->execute();
-            $data = $resultset->fetch();
+            $data = $resultset->fetchall();
             return $data;
 
             $this->_db->commit();
@@ -165,8 +165,24 @@ class VoitureBD extends Voiture{
             print "Echec de la requête : ".$e->getMessage();
             $_db->rollback();
         }
-    }*/
+    }
 
+    public function getrecherche_rapide_voit($marque,$modele,$carbu){
+        $flag=0;
+        $query = "select * from voiture where marque = :marque and lower(modele) like lower('%".$modele."%') and carburant = :carbu ";
+        $_resultset = $this->_db->prepare($query);
+        $_resultset->bindValue(':marque', $marque);
+        $_resultset->bindValue(':carbu', $carbu);
+        $_resultset->execute();
+
+        while ($d = $_resultset->fetch()){
+            $_data []= new voiture($d);
+            $flag=1;
+        }
+        if($flag==1){
+            return $_data;
+        }
+    }
 
 
 }

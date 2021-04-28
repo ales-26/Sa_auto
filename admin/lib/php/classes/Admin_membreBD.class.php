@@ -23,7 +23,7 @@ class Admin_membreBD extends Admin_membre {
         }
     }
 
-    public function getMembre($login, $password){
+    public function getUser($login, $password){
         try {
             $query = "select is_admin('membre',:login,:password)as retour";
             $_resultset = $this->_db->prepare($query);

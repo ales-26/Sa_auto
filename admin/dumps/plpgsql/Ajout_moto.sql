@@ -18,7 +18,7 @@ as
 		if not found 
 		then 
 			insert into moto(nom_image,marque,modele,carburant,annee,puissance,km,prix,new)
-			values($1,lower($2),lower($3),$4,$5,$6,$7,$8,$9);
+			values($1,initcap($2),initcap($3),$4,$5,$6,$7,$8,$9);
 			retour = 1;
 		else
 			retour = 0;

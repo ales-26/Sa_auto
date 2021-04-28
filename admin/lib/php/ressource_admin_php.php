@@ -1,4 +1,5 @@
 <?php
+
 /* Voiture Ajout new */
     if(isset($_POST['submit'])){
         extract($_POST,EXTR_OVERWRITE);
@@ -43,6 +44,7 @@
     }
 
 /* Voiture modif voiture */
+
     if(isset($_POST['submit4'])){
         extract($_POST,EXTR_OVERWRITE);
 

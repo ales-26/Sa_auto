@@ -4,7 +4,7 @@ $moto = $liste->getMoto();
 $nbr = count($moto);
 ?>
 
-<section class="py-5 text-center container ">
+<section class="py-5 text-center container titre_page">
     <div class="row py-lg-5">
         <div class="col-lg-6 col-md-8 mx-auto">
             <h2 class="fw-light titre_page ">Nos Moto</h2>
@@ -39,10 +39,10 @@ while($i<$nbr){
                         Carburant : <span class="card-reponse"><?php print$moto[$i]->carburant;?><?php print " ";?></span><br>
                         Année : <span class="card-reponse"><?php print$moto[$i]->annee;?><?php print " ";?></span><br>
                         Puissance : <span class="card-reponse"><?php print$moto[$i]->puissance;?> ch<?php print " ";?></span><br>
-                        Kilomètre : <span class="card-reponse"><?php print$moto[$i]->km;?> km<?php print " ";?></span><br>
+                        Kilomètre : <span class="card-reponse"><?php print  $format = number_format( $moto[$i]->km, 0, ',', ' ');?> km<?php print " ";?></span><br>
                     </p>
                     <div class="d-flex justify-content-between align-items-center">
-                        <span class="card-prix">Prix : <?php print$moto[$i]->prix;?><?php print " ";?>€</span>
+                        <span class="card-prix">Prix : <?php print  $format = number_format( $moto[$i]->prix, 0, ',', ' ');?><?php print " ";?>€</span>
                         <div class="btn-group">
                             <p class="btn-sm btn_card">Id Moto : <?php print$moto[$i]->id_moto;?></p>
                         </div>
@@ -67,10 +67,10 @@ if ($i<$nbr){?>
                         Carburant : <span class="card-reponse"><?php print$moto[$i]->carburant;?><?php print " ";?></span><br>
                         Année : <span class="card-reponse"><?php print$moto[$i]->annee;?><?php print " ";?></span><br>
                         Puissance : <span class="card-reponse"><?php print$moto[$i]->puissance;?> ch<?php print " ";?></span><br>
-                        Kilomètre : <span class="card-reponse"><?php print$moto[$i]->km;?> km<?php print " ";?></span><br>
+                        Kilomètre : <span class="card-reponse"><?php print  $format = number_format( $moto[$i]->km, 0, ',', ' ');?> km<?php print " ";?></span><br>
                     </p>
                     <div class="d-flex justify-content-between align-items-center">
-                        <span class="card-prix">Prix : <?php print$moto[$i]->prix;?><?php print " ";?>€</span>
+                        <span class="card-prix">Prix : <?php print  $format = number_format( $moto[$i]->prix, 0, ',', ' ');?><?php print " ";?>€</span>
                         <div class="btn-group">
                             <p class="btn-sm btn_card">Id Moto : <?php print$moto[$i]->id_moto;?></p>
                         </div>

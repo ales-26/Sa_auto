@@ -4,7 +4,7 @@ $moto = $liste->getMoto();
 $nbr = count($moto);
 ?>
 
-<section class="py-5 text-center container ">
+<section class="py-5 text-center container titre_page">
     <div class="row py-lg-5">
         <div class="col-lg-6 col-md-8 mx-auto">
             <h2 class="fw-light titre_page ">Nos Moto</h2>
@@ -39,12 +39,33 @@ while($i<$nbr){
                         Carburant : <span class="card-reponse"><?php print$moto[$i]->carburant;?><?php print " ";?></span><br>
                         Année : <span class="card-reponse"><?php print$moto[$i]->annee;?><?php print " ";?></span><br>
                         Puissance : <span class="card-reponse"><?php print$moto[$i]->puissance;?> ch<?php print " ";?></span><br>
-                        Kilomètre : <span class="card-reponse"><?php print$moto[$i]->km;?> km<?php print " ";?></span><br>
+                        Kilomètre : <span class="card-reponse"><?php print  $format = number_format($moto[$i]->km, 0, ',', ' ');?> km<?php print " ";?></span><br>
                     </p>
                     <div class="d-flex justify-content-between align-items-center">
-                        <span class="card-prix">Prix : <?php print$moto[$i]->prix;?><?php print " ";?>€</span>
+                        <span class="card-prix">Prix : <?php print  $format = number_format($moto[$i]->prix, 0, ',', ' ');?><?php print " ";?>€</span>
                         <div class="btn-group">
-                            <button type="button" onclick="window.location.href='index_.php?page=News.php';" class="btn btn-sm btn-outline-secondary btn_card">Reserver</button>
+                            <button type="button" class="btn btn-sm btn-outline-secondary btn_card" data-toggle="modal" data-target="#essayer">Essayer</button>
+                            <!-- modal -->
+                            <div class="modal fade" id="essayer" tabindex="-1" role="dialog" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="titre_modal">Attention !</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="alert alert-danger" role="alert">
+                                                Veuillez vous connecter ou vous inscrire pour accéder à cette page.
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -67,12 +88,33 @@ if ($i<$nbr){?>
                         Carburant : <span class="card-reponse"><?php print$moto[$i]->carburant;?><?php print " ";?></span><br>
                         Année : <span class="card-reponse"><?php print$moto[$i]->annee;?><?php print " ";?></span><br>
                         Puissance : <span class="card-reponse"><?php print$moto[$i]->puissance;?> ch<?php print " ";?></span><br>
-                        Kilomètre : <span class="card-reponse"><?php print$moto[$i]->km;?> km<?php print " ";?></span><br>
+                        Kilomètre : <span class="card-reponse"><?php print  $format = number_format($moto[$i]->km, 0, ',', ' ');?> km<?php print " ";?></span><br>
                     </p>
                     <div class="d-flex justify-content-between align-items-center">
-                        <span class="card-prix">Prix : <?php print$moto[$i]->prix;?><?php print " ";?>€</span>
+                        <span class="card-prix">Prix : <?php print  $format = number_format($moto[$i]->prix, 0, ',', ' ');?>€</span>
                         <div class="btn-group">
-                            <button type="button" onclick="window.location.href='index_.php?page=News.php';" class="btn btn-sm btn-outline-secondary btn_card">Reserver</button>
+                            <button type="button" class="btn btn-sm btn-outline-secondary btn_card" data-toggle="modal" data-target="#essayer">Essayer</button>
+                            <!-- modal -->
+                            <div class="modal fade" id="essayer" tabindex="-1" role="dialog" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="titre_modal">Attention !</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="alert alert-danger" role="alert">
+                                                Veuillez vous connecter ou vous inscrire pour accéder à cette page.
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

@@ -6,6 +6,6 @@ if(!isset($_SESSION['admin'])){
     </div>
     <? phpsession_destroy();
     ?>
-    <meta http-equiv="refresh": content="2;URL=../index_.php">
+    <meta http-equiv="refresh": content="0;URL=../index_.php?page=accueil.php">
     <?php
 }

@@ -4,20 +4,20 @@ include('./lib/php/verifier_connexion.php');
 if(isset($_SESSION['admin'])){
 ?>
 
-<section class="py-5 text-center container ">
+<section class="py-5 text-center container titre_page">
     <div class="row py-lg-5">
         <div class="col-lg-6 col-md-8 mx-auto">
             <h2 class="fw-light titre_page ">Les clients</h2>
             <p class="lead text-muted">
-                <br>Voici la recherche de tous les membre affilié à notre site web.<br>
+                <br>Voici la recherche de tous les membre affilié à notre site web.
                 Faite une recherche par numero de téléphone, ou afficher tous pour tus voir.
-            </p>
+            </p><br>
             <p>
                 <form action="<?php print $_SERVER['PHP_SELF'];?>" method="get">
                     <div class="container">
                         <div class="row">
                             <div class="col-md-5 mb-4">
-                                <label for="num_client">Numero de tel</label>
+                                <label for="num_client">Numéro de gsm client</label>
                                 <input type="text" class="form-control" id="num_client" name="num_client" placeholder="0499/**/**/**" required>
                             </div>
                             <div class="col-md-4 mb-4">
@@ -37,7 +37,7 @@ if(isset($_SESSION['admin'])){
 </section>
 
 <section class="text-center container">
-    <div id="table_client" >
+    <div id="table_client" style="visibility:hidden;">
         <table class="table">
             <thead class="thead-dark">
             <tr>

@@ -1,8 +1,13 @@
 <?php
 include('./lib/php/verifier_connexion.php');
-
 if(isset($_SESSION['admin'])){
     $alert=0;
+    $liste_voit = new VoitureBD($cnx);
+    $voiture2 = $liste_voit->getVoituremarque();
+    $nbrvoit = count($voiture2);
+    $liste_moto = new MotoBD($cnx);
+    $moto2 = $liste_moto->getMotomarque();
+    $nbrmoto = count($moto2);
     include ('./lib/php/ressource_admin_php.php');
 ?>
 <section class="py-5 text-center container ">
@@ -13,10 +18,10 @@ if(isset($_SESSION['admin'])){
     </div>
 </section>
 
-<section class=" text-center accueil_admin">
+<section class=" text-center accueil_admin titre_page">
     <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
         <li class="nav-item" role="presentation">
-            <a class="nav-link active" id="pills-voiture-tab" data-toggle="pill" href="#pills-voiture" role="tab" aria-controls="pills-voiture" aria-selected="true">Voiture</a>
+            <a class="nav-link active t" id="pills-voiture-tab" data-toggle="pill" href="#pills-voiture" role="tab" aria-controls="pills-voiture" aria-selected="true">Voiture</a>
         </li>
         <li class="nav-item" role="presentation">
             <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-moto" role="tab" aria-controls="pills-moto" aria-selected="false">Moto</a>
@@ -24,27 +29,27 @@ if(isset($_SESSION['admin'])){
     </ul>
 
 
-    <div class="tab-content" id="pills-tabContent">
+    <div class="tab-content titre_page" id="pills-tabContent">
         <!-- Voiture -->
         <div class="tab-pane fade show active" id="pills-voiture" role="tabpanel" aria-labelledby="pills-voiture-tab">
             <div class="row">
                 <div class="col-3">
                     <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                        <a class="nav-link active" id="v-pills-ajou_new-tab" data-toggle="pill" href="#v-pills-ajou_new" role="tab" aria-controls="v-pills-ajou_new" aria-selected="true">Ajouter voiture dans "NEW"</a>
-                        <a class="nav-link" id="v-pills-ajou_voit-tab" data-toggle="pill" href="#v-pills-ajou_voit" role="tab" aria-controls="v-pills-ajou_voit" aria-selected="false">Ajouter voiture dans "VOITURE"</a>
-                        <a class="nav-link" id="v-pills-modif-tab" data-toggle="pill" href="#v-pills-modif" role="tab" aria-controls="v-pills-modif" aria-selected="false">Modifier prix voiture</a>
-                        <a class="nav-link" id="v-pills-supp_new-tab" data-toggle="pill" href="#v-pills-supp_new" role="tab" aria-controls="v-pills-supp_new" aria-selected="false">Supprimer voiture dans "NEW"</a>
-                        <a class="nav-link" id="v-pills-supp_voit-tab" data-toggle="pill" href="#v-pills-supp_voit" role="tab" aria-controls="v-pills-supp_voit" aria-selected="false">Supprimer voiture dans "VOITURE"</a>
+                        <a class="list-group-item list-group-item-action active" id="v-pills-ajou_new-tab" data-toggle="pill" href="#v-pills-ajou_new" role="tab" aria-controls="v-pills-ajou_new" aria-selected="true">Ajouter voiture dans "NEW"</a>
+                        <a class="list-group-item list-group-item-action" id="v-pills-ajou_voit-tab" data-toggle="pill" href="#v-pills-ajou_voit" role="tab" aria-controls="v-pills-ajou_voit" aria-selected="false">Ajouter voiture dans "VOITURE"</a>
+                        <a class="list-group-item list-group-item-action" id="v-pills-modif-tab" data-toggle="pill" href="#v-pills-modif" role="tab" aria-controls="v-pills-modif" aria-selected="false">Modifier prix voiture</a>
+                        <a class="list-group-item list-group-item-action" id="v-pills-supp_new-tab" data-toggle="pill" href="#v-pills-supp_new" role="tab" aria-controls="v-pills-supp_new" aria-selected="false">Supprimer voiture dans "NEW"</a>
+                        <a class="list-group-item list-group-item-action" id="v-pills-supp_voit-tab" data-toggle="pill" href="#v-pills-supp_voit" role="tab" aria-controls="v-pills-supp_voit" aria-selected="false">Supprimer voiture dans "VOITURE"</a>
                     </div>
                 </div>
-                <div class="col-9">
+                <div class="col-9 ">
                     <div class="tab-content" id="v-pills-tabContent">
                         <!-- ajout new -->
-                        <div class="tab-pane fade show active" id="v-pills-ajou_new" role="tabpanel" aria-labelledby="v-pills-ajou_new-tab">
-                            <h2 class="fw-light titre_page blue ">Ajouter New </h2><br><br>
+                        <div class="tab-pane  fade show active" id="v-pills-ajou_new" role="tabpanel" aria-labelledby="v-pills-ajou_new-tab">
+                            <h2 class="fw-light titre_page blue">Ajouter New </h2><br><br>
                             <p class="lead text-muted">
                                 En ajoutant la voiture sur la page new, elle sera aussi visible sur la page voiture !!
-                            </p>
+                            </p><br>
                             <form action="<?php print $_SERVER['PHP_SELF'];?>" method="post" enctype="multipart/form-data">
                                 <div class="container">
                                     <div class="row">
@@ -123,7 +128,7 @@ if(isset($_SESSION['admin'])){
                             <h2 class="fw-light titre_page blue ">Ajouter Voiture </h2><br><br>
                             <p class="lead text-muted">
                                 En ajoutant la voiture sur la page voiture, elle ne sera pas visible sur la page new !!
-                            </p>
+                            </p><br>
                             <form action="<?php print $_SERVER['PHP_SELF'];?>" method="post" enctype="multipart/form-data">
                                 <div class="container">
                                     <div class="row">
@@ -203,12 +208,22 @@ if(isset($_SESSION['admin'])){
                             <form action="<?php print $_SERVER['PHP_SELF'];?>" method="get">
                                  <div class="container">
                                      <div class="row">
-                                         <div class="col-md-4 mb-4"><br></div>
-                                         <div class="col-md-4 mb-4">
-                                             <label for="id_voiture">Id</label>
-                                             <input type="text" class="form-control" id="id_voiture" name="id_voiture" placeholder="25" required>
+                                         <div class="col-md-4 mb-3">
+                                             <label for="marque_voiture_modif_admin">Marque</label>
+                                             <select class="custom-select d-block w-100" id="marque_voiture_modif_admin" name="marque_voiture_modif_admin" >
+                                                 <option value="">Choisir...</option>
+                                                 <?php
+                                                 for($i=0;$i<$nbrvoit;$i++){
+                                                     ?><option value="<?php print $voiture2[$i]->marque;?>"><?php print $voiture2[$i]->marque;?></option><?php
+                                                 }
+                                                 ?>
+                                             </select>
                                          </div>
-                                         <div class="col-md-4 mb-4">
+                                         <div class="col-md-4 mb-3">
+                                             <label for="model_voiture_modif_admin">Modele</label>
+                                             <input type="text" class="form-control" id="model_voiture_modif_admin"  name="model_voiture_modif_admin" placeholder="Golf">
+                                         </div>
+                                         <div class="col-md-4 mb-3">
                                              <br>
                                              <button class="btn btn-primary btn-lg btn-block" type="button" id="submit3" name="submit3">Valider</button>
                                          </div>
@@ -243,7 +258,7 @@ if(isset($_SESSION['admin'])){
                                 <div class="container" id="modif_prix_voit">
                                     <div class="row">
                                         <div class="col-md-4 mb-3">
-                                            <label for="id_voiture4">Id</label>
+                                            <label for="id_voiture4">ID</label>
                                             <input type="text" class="form-control" id="id_voiture4" name="id_voiture4" placeholder="25" required>
                                         </div>
                                         <div class="col-md-4 mb-3">
@@ -264,16 +279,26 @@ if(isset($_SESSION['admin'])){
                             <h2 class="fw-light titre_page blue ">Supprimer New</h2><br><br>
                             <p class="lead text-muted">
                                 En supprimant la voiture de la page New, cela n'affectera pas la page voiture !
-                            </p>
+                            </p><br>
                             <form action="<?php print $_SERVER['PHP_SELF'];?>" method="get">
                                 <div class="container">
                                     <div class="row">
-                                        <div class="col-md-4 mb-4"><br></div>
-                                        <div class="col-md-4 mb-4">
-                                            <label for="id_voiture_supp_new">Id</label>
-                                            <input type="text" class="form-control" id="id_voiture_supp_new" name="id_voiture_supp_new" placeholder="25" required>
+                                        <div class="col-md-4 mb-3">
+                                            <label for="marque_voiture_supp_n_admin">Marque</label>
+                                            <select class="custom-select d-block w-100" id="marque_voiture_supp_n_admin" name="marque_voiture_supp_n_admin" >
+                                                <option value="">Choisir...</option>
+                                                <?php
+                                                for($i=0;$i<$nbrvoit;$i++){
+                                                    ?><option value="<?php print $voiture2[$i]->marque;?>"><?php print $voiture2[$i]->marque;?></option><?php
+                                                }
+                                                ?>
+                                            </select>
                                         </div>
-                                        <div class="col-md-4 mb-4">
+                                        <div class="col-md-4 mb-3">
+                                            <label for="model_voiture_supp_n_admin">Modele</label>
+                                            <input type="text" class="form-control" id="model_voiture_supp_n_admin"  name="model_voiture_supp_n_admin" placeholder="Golf">
+                                        </div>
+                                        <div class="col-md-4 mb-3">
                                             <br>
                                             <button class="btn btn-primary btn-lg btn-block" type="button" id="submit5" name="submit5">Valider</button>
                                         </div>
@@ -326,16 +351,26 @@ if(isset($_SESSION['admin'])){
                             <h2 class="fw-light titre_page blue ">Supprimer Voiture</h2><br><br>
                             <p class="lead text-muted">
                                 En supprimant la voiture de la page Voiture, vous la supprimer totalement !
-                            </p>
+                            </p><br>
                             <form action="<?php print $_SERVER['PHP_SELF'];?>" method="get">
                                 <div class="container">
                                     <div class="row">
-                                        <div class="col-md-4 mb-4"><br></div>
-                                        <div class="col-md-4 mb-4">
-                                            <label for="id_voiture">Id</label>
-                                            <input type="text" class="form-control" id="id_voiture_supp" name="id_voiture_supp" placeholder="25" required>
+                                        <div class="col-md-4 mb-3">
+                                            <label for="marque_voiture_supp_admin">Marque</label>
+                                            <select class="custom-select d-block w-100" id="marque_voiture_supp_admin" name="marque_voiture_supp_admin" >
+                                                <option value="">Choisir...</option>
+                                                <?php
+                                                for($i=0;$i<$nbrvoit;$i++){
+                                                    ?><option value="<?php print $voiture2[$i]->marque;?>"><?php print $voiture2[$i]->marque;?></option><?php
+                                                }
+                                                ?>
+                                            </select>
                                         </div>
-                                        <div class="col-md-4 mb-4">
+                                        <div class="col-md-4 mb-3">
+                                            <label for="model_voiture_supp_admin">Modele</label>
+                                            <input type="text" class="form-control" id="model_voiture_supp_admin"  name="model_voiture_supp_admin" placeholder="Golf">
+                                        </div>
+                                        <div class="col-md-4 mb-3">
                                             <br>
                                             <button class="btn btn-primary btn-lg btn-block" type="button" id="submit7" name="submit7">Valider</button>
                                         </div>
@@ -382,23 +417,21 @@ if(isset($_SESSION['admin'])){
                                 </div>
                             </form>
                         </div>
-
                     </div>
                 </div>
             </div>
         </div>
-
 
         <!-- Moto -->
         <div class="tab-pane fade" id="pills-moto" role="tabpanel" aria-labelledby="pills-moto-tab">
             <div class="row">
                 <div class="col-3">
                     <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                        <a class="nav-link active" id="v-pills-ajou_new_moto-tab" data-toggle="pill" href="#v-pills-ajou_new_moto" role="tab" aria-controls="v-pills-ajou_new_moto" aria-selected="true">Ajouter moto dans "NEW"</a>
-                        <a class="nav-link" id="v-pills-ajou_moto-tab" data-toggle="pill" href="#v-pills-ajou_moto" role="tab" aria-controls="v-pills-ajou_moto" aria-selected="false">Ajouter moto dans "MOTO"</a>
-                        <a class="nav-link" id="v-pills-modif_moto-tab" data-toggle="pill" href="#v-pills-modif_moto" role="tab" aria-controls="v-pills-modif_moto" aria-selected="false">Modifier prix moto</a>
-                        <a class="nav-link" id="v-pills-supp_new_moto-tab" data-toggle="pill" href="#v-pills-supp_new_moto" role="tab" aria-controls="v-pills-supp_new_moto" aria-selected="false">Supprimer moto dans "NEW"</a>
-                        <a class="nav-link" id="v-pills-supp_moto-tab" data-toggle="pill" href="#v-pills-supp_moto" role="tab" aria-controls="v-pills-supp_moto" aria-selected="false">Supprimer moto dans "MOTO"</a>
+                        <a class="list-group-item list-group-item-action active" id="v-pills-ajou_new_moto-tab" data-toggle="pill" href="#v-pills-ajou_new_moto" role="tab" aria-controls="v-pills-ajou_new_moto" aria-selected="true">Ajouter moto dans "NEW"</a>
+                        <a class="list-group-item list-group-item-action" id="v-pills-ajou_moto-tab" data-toggle="pill" href="#v-pills-ajou_moto" role="tab" aria-controls="v-pills-ajou_moto" aria-selected="false">Ajouter moto dans "MOTO"</a>
+                        <a class="list-group-item list-group-item-action" id="v-pills-modif_moto-tab" data-toggle="pill" href="#v-pills-modif_moto" role="tab" aria-controls="v-pills-modif_moto" aria-selected="false">Modifier prix moto</a>
+                        <a class="list-group-item list-group-item-action" id="v-pills-supp_new_moto-tab" data-toggle="pill" href="#v-pills-supp_new_moto" role="tab" aria-controls="v-pills-supp_new_moto" aria-selected="false">Supprimer moto dans "NEW"</a>
+                        <a class="list-group-item list-group-item-action" id="v-pills-supp_moto-tab" data-toggle="pill" href="#v-pills-supp_moto" role="tab" aria-controls="v-pills-supp_moto" aria-selected="false">Supprimer moto dans "MOTO"</a>
                     </div>
                 </div>
                 <div class="col-9">
@@ -408,7 +441,7 @@ if(isset($_SESSION['admin'])){
                             <h2 class="fw-light titre_page blue ">Ajouter New </h2><br><br>
                             <p class="lead text-muted">
                                 En ajoutant la moto sur la page new, elle sera aussi visible sur la page moto !!
-                            </p>
+                            </p><br>
                             <form action="<?php print $_SERVER['PHP_SELF'];?>" method="post" enctype="multipart/form-data">
                                 <div class="container">
                                     <div class="row">
@@ -473,7 +506,7 @@ if(isset($_SESSION['admin'])){
                             <h2 class="fw-light titre_page blue ">Ajouter Moto </h2><br><br>
                             <p class="lead text-muted">
                                 En ajoutant la moto sur la page moto, elle ne sera pas visible sur la page new !!
-                            </p>
+                            </p><br>
                             <form action="<?php print $_SERVER['PHP_SELF'];?>" method="post" enctype="multipart/form-data">
                                 <div class="container">
                                     <div class="row">
@@ -539,12 +572,22 @@ if(isset($_SESSION['admin'])){
                             <form action="<?php print $_SERVER['PHP_SELF'];?>" method="get">
                                 <div class="container">
                                     <div class="row">
-                                        <div class="col-md-4 mb-4"><br></div>
-                                        <div class="col-md-4 mb-4">
-                                            <label for="id_moto">Id</label>
-                                            <input type="text" class="form-control" id="id_moto" name="id_moto" placeholder="25" required>
+                                        <div class="col-md-4 mb-3">
+                                            <label for="marque_moto_modif_admin">Marque</label>
+                                            <select class="custom-select d-block w-100" id="marque_moto_modif_admin" name="marque_moto_modif_admin" >
+                                                <option value="">Choisir...</option>
+                                                <?php
+                                                for($i=0;$i<$nbrmoto;$i++){
+                                                    ?><option value="<?php print $moto2[$i]->marque;?>"><?php print $moto2[$i]->marque;?></option><?php
+                                                }
+                                                ?>
+                                            </select>
                                         </div>
-                                        <div class="col-md-4 mb-4">
+                                        <div class="col-md-4 mb-3">
+                                            <label for="model_moto_modif_admin">Modele</label>
+                                            <input type="text" class="form-control" id="model_moto_modif_admin"  name="model_moto_modif_admin" placeholder="Sporter">
+                                        </div>
+                                        <div class="col-md-4 mb-3">
                                             <br>
                                             <button class="btn btn-primary btn-lg btn-block" type="button" id="submit_moto3" name="submit_moto3">Valider</button>
                                         </div>
@@ -600,16 +643,26 @@ if(isset($_SESSION['admin'])){
                             <h2 class="fw-light titre_page blue ">Supprimer New</h2><br><br>
                             <p class="lead text-muted">
                                 En supprimant la moto de la page New, cela n'affectera pas la page voiture !
-                            </p>
+                            </p><br>
                             <form action="<?php print $_SERVER['PHP_SELF'];?>" method="get">
                                 <div class="container">
                                     <div class="row">
-                                        <div class="col-md-4 mb-4"><br></div>
-                                        <div class="col-md-4 mb-4">
-                                            <label for="id_moto_supp_new">Id</label>
-                                            <input type="text" class="form-control" id="id_moto_supp_new" name="id_moto_supp_new" placeholder="25" required>
+                                        <div class="col-md-4 mb-3">
+                                            <label for="marque_moto_n_supp_admin">Marque</label>
+                                            <select class="custom-select d-block w-100" id="marque_moto_n_supp_admin" name="marque_voiture_moto_n_supp_admin" >
+                                                <option value="">Choisir...</option>
+                                                <?php
+                                                for($i=0;$i<$nbrmoto;$i++){
+                                                    ?><option value="<?php print $moto2[$i]->marque;?>"><?php print $moto2[$i]->marque;?></option><?php
+                                                }
+                                                ?>
+                                            </select>
                                         </div>
-                                        <div class="col-md-4 mb-4">
+                                        <div class="col-md-4 mb-3">
+                                            <label for="model_moto_n_supp_admin">Modele</label>
+                                            <input type="text" class="form-control" id="model_moto_n_supp_admin"  name="model_moto_n_supp_admin" placeholder="Sporter">
+                                        </div>
+                                        <div class="col-md-4 mb-3">
                                             <br>
                                             <button class="btn btn-primary btn-lg btn-block" type="button" id="submit_moto5" name="submit_moto5">Valider</button>
                                         </div>
@@ -657,21 +710,31 @@ if(isset($_SESSION['admin'])){
                             </form>
                         </div>
 
-                        <!-- supprimer voiture -->
+                        <!-- supprimer moto -->
                         <div class="tab-pane fade" id="v-pills-supp_moto" role="tabpanel" aria-labelledby="v-pills-supp_moto-tab">
                             <h2 class="fw-light titre_page blue ">Supprimer Moto</h2><br><br>
                             <p class="lead text-muted">
                                 En supprimant la moto de la page Moto, vous la supprimer totalement !
-                            </p>
+                            </p><br>
                             <form action="<?php print $_SERVER['PHP_SELF'];?>" method="get">
                                 <div class="container">
                                     <div class="row">
-                                        <div class="col-md-4 mb-4"><br></div>
-                                        <div class="col-md-4 mb-4">
-                                            <label for="id_moto_supp">Id</label>
-                                            <input type="text" class="form-control" id="id_moto_supp" name="id_moto_supp" placeholder="25" required>
+                                        <div class="col-md-4 mb-3">
+                                            <label for="marque_moto_supp_admin">Marque</label>
+                                            <select class="custom-select d-block w-100" id="marque_moto_supp_admin" name="marque_moto_supp_admin" >
+                                                <option value="">Choisir...</option>
+                                                <?php
+                                                for($i=0;$i<$nbrmoto;$i++){
+                                                    ?><option value="<?php print $moto2[$i]->marque;?>"><?php print $moto2[$i]->marque;?></option><?php
+                                                }
+                                                ?>
+                                            </select>
                                         </div>
-                                        <div class="col-md-4 mb-4">
+                                        <div class="col-md-4 mb-3">
+                                            <label for="model_moto_supp_admin">Modele</label>
+                                            <input type="text" class="form-control" id="model_moto_supp_admin"  name="model_moto_supp_admin" placeholder="Sporter">
+                                        </div>
+                                        <div class="col-md-4 mb-3">
                                             <br>
                                             <button class="btn btn-primary btn-lg btn-block" type="button" id="submit_moto7" name="submit_moto7">Valider</button>
                                         </div>
@@ -724,8 +787,7 @@ if(isset($_SESSION['admin'])){
             </div>
         </div>
 
-
-
+        <!-- Alert -->
         <?php if($alert == 1){?>
             <div id="alert" class="alert alert-success" role="alert" > Transaction réussi !</div>
         <?php } else if($alert == 2) { ?>

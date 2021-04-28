@@ -38,7 +38,7 @@ $cnx = Connexion::getInstance($dsn,$user,$password);
                 <div>
                     <?php
                         if(!isset($_SESSION['page'])){
-                            $_SESSION['page']="./pages/accueil.php";
+                            $_SESSION['page']="../pages/accueil.php";
                         }
                         if(isset($_GET['page'])){
                             $_SESSION['page']="./pages/".$_GET['page'];

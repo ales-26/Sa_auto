@@ -36,7 +36,7 @@
 </section>
 
 <!-- Lien reseau -->
-<section class="container">
+<section class="container" >
     <br><br><p class="container text_contact"><b id="titre_contact">Contactez-nous</b><br><br></p>
 
     <div class="row">
@@ -50,7 +50,7 @@
                 <a href="https:\www.instagram.com"><img src="./admin/images/logo/instagram2.jpg" class="card-img-top" alt="Lien Instagram"></a>
             </div>
         </div>
-        <div class="col img_agrand">
+        <div class="col  img_agrand">
             <div class="card">
                 <a href="mailto:Design.auto@gmail.com"><img src="./admin/images/logo/mail.jpg" class="card-img-top" alt="Lien Mail"></a>
             </div>

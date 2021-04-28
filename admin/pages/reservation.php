@@ -2,22 +2,20 @@
 include('./lib/php/verifier_connexion.php');
 
 if(isset($_SESSION['admin'])){
-    include ('../pages/page_construction.php');
     ?>
 
-    <!--<section class="py-5 text-center container ">
+    <section class="py-5 text-center container titre_page">
         <div class="row py-lg-5">
             <div class="col-lg-6 col-md-8 mx-auto">
-                <h2 class="fw-light titre_page ">Les reservation</h2>
+                <h2 class="fw-light titre_page ">Les réservation</h2>
                 <p class="lead text-muted">
                     <br>Voici la liste des reservation de tous les clients
-                </p>
-                <p>
+                </p><br>
                 <form action="<?php print $_SERVER['PHP_SELF'];?>" method="get">
                     <div class="container">
                         <div class="row">
                             <div class="col-md-5 mb-4">
-                                <label for="num_client_reserv">Numero de tel</label>
+                                <label for="num_client_reserv">Numéro de gsm client</label>
                                 <input type="text" class="form-control" id="num_client_reserv" name="num_client_reserv" placeholder="0499/**/**/**" required>
                             </div>
                             <div class="col-md-4 mb-4">
@@ -31,43 +29,38 @@ if(isset($_SESSION['admin'])){
                         </div>
                     </div>
                 </form>
-                </p>
             </div>
         </div>
     </section>
 
     <section class="text-center container">
-        <div id="table_client" >
+        <div id="table_reserv" style="visibility:hidden;">
             <table class="table">
                 <thead class="thead-dark">
                 <tr>
-                    <th scope="col">ID</th>
-                    <th scope="col">Status</th>
+                    <th scope="col">ID Reservation</th>
+                    <th scope="col">ID Client</th>
                     <th scope="col">Nom</th>
                     <th scope="col">Prenom</th>
-                    <th scope="col">Téléphone</th>
-                    <th scope="col">Mail</th>
-                    <th scope="col">Rue</th>
-                    <th scope="col">Numero</th>
-                    <th scope="col">Code postal</th>
-                    <th scope="col">Ville</th>
+                    <th scope="col">ID Voiture</th>
+                    <th scope="col">ID Moto</th>
+                    <th scope="col">Date de reservation</th>
+                    <th scope="col">Date du rendez-vous</th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr class="client">
-                    <td id="id_client"></td>
-                    <td id="statut_client"></td>
-                    <td id="nom_client"></td>
-                    <td id="prenom_client"></td>
-                    <td id="tel_client"></td>
-                    <td id="mail_client"></td>
-                    <td id="rue_client"></td>
-                    <td id="numero_client"></td>
-                    <td id="cp_client"></td>
-                    <td id="ville_client"></td>
+                    <td id="id_reserv"></td>
+                    <td id="id_client_reserv"></td>
+                    <td id="nom_client_reserv"></td>
+                    <td id="prenom_client_reserv"></td>
+                    <td id="id_voiture_reserv"></td>
+                    <td id="id_moto_reserv"></td>
+                    <td id="date_reserv_reserv"></td>
+                    <td id="date_rdv_reserv"></td>
                 </tr>
                 </tbody>
             </table>
         </div><br><br>
-    </section>-->
+    </section>
 <?php } ?>
