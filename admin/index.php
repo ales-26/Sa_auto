@@ -36,10 +36,6 @@ $cnx = Connexion::getInstance($dsn,$user,$password);
             <section id="contenu">
                 <div id="main">
                     <?php
-                    /*if(isset($_SESSION['page']) && !isset($_SESSION['partie_admin'])){
-                        unset($_SESSION['page']);
-                        $_SESSION['partie_admin']=1;
-                    }*/
                     if(!isset($_SESSION['page'])){
                         $_SESSION['page']="accueil_admin.php";
                     }

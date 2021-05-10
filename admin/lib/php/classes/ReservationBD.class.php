@@ -44,13 +44,14 @@ class ReservationBD extends Reservation{
         }
     }
 
-    public function Reservation_voit_Ajout($id_client,$id_voiture,$date){
+    public function Reservation_voit_Ajout($id_client,$id_voiture,$date,$heure){
         try{
-            $query = "select Ajout_reserv_voiture(:id_client,:id_voiture,:date)as retour";
+            $query = "select Ajout_reserv_voiture(:id_client,:id_voiture,:date,:heure)as retour";
             $_resultset = $this->_db->prepare($query);
             $_resultset->bindValue(':id_client', $id_client);
             $_resultset->bindValue(':id_voiture', $id_voiture);
             $_resultset->bindValue(':date', $date);
+            $_resultset->bindValue(':heure', $heure);
             $_resultset->execute();
             $retour =$_resultset->fetchColumn(0);
 
@@ -60,13 +61,14 @@ class ReservationBD extends Reservation{
         }
     }
 
-    public function Reservation_moto_Ajout($id_client,$id_moto,$date){
+    public function Reservation_moto_Ajout($id_client,$id_moto,$date,$heure){
         try{
-            $query = "select Ajout_reserv_moto(:id_client,:id_moto,:date)as retour";
+            $query = "select Ajout_reserv_moto(:id_client,:id_moto,:date,:heure)as retour";
             $_resultset = $this->_db->prepare($query);
             $_resultset->bindValue(':id_client', $id_client);
             $_resultset->bindValue(':id_moto', $id_moto);
             $_resultset->bindValue(':date', $date);
+            $_resultset->bindValue(':heure', $heure);
             $_resultset->execute();
             $retour =$_resultset->fetchColumn(0);
 
@@ -117,4 +119,42 @@ class ReservationBD extends Reservation{
             print "Echec ".$e->getMessage();
         }
     }
+
+    public function getreserv_local($datelocal){
+        try{
+            $flag=0;
+            $query = "select * from vue_reservation where date_rdv = :datelocal";
+            $_resultset = $this->_db->prepare($query);
+            $_resultset->bindValue(':datelocal', $datelocal);
+            $_resultset->execute();
+
+            while ($d = $_resultset->fetch()){
+                $_data []= new reservation($d);
+                $flag=1;
+            }
+            if($flag==1){
+                return $_data;
+            }
+
+        }catch(PDOException $e){
+            print "Echec ".$e->getMessage();
+        }
+    }
+
+    public function getlisteallreservprint(){
+        try{
+            $query = "select * from vue_reservation";
+            $_resultset = $this->_db->prepare($query);
+            $_resultset->execute();
+
+            while ($d = $_resultset->fetch(PDO::FETCH_OBJ)){
+                $_data[] = new Reservation($d);
+            }
+            return $_data;
+        } catch (PDOException $e){
+            print "Echec de la requete ".$e->getMessage();
+
+        }
+    }
 }
+

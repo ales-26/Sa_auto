@@ -13,7 +13,7 @@ if(isset($_POST['submit_valid_resv_voit'])){
     $id_user = $c->get_id_user_reserv($_SESSION['login']);
     if($id_user){
         $aj = new ReservationBD($cnx);
-        $reserv = $aj->Reservation_voit_Ajout($id_user,$id_reserv_voiture,$date_rdv);
+        $reserv = $aj->Reservation_voit_Ajout($id_user,$id_reserv_voiture,$date_rdv,$heure_rdv);
         $alert=1;
     }else{ $alert=2;}
 }
@@ -21,10 +21,10 @@ if(isset($_POST['submit_valid_resv_voit'])){
 <section class="py-5 text-center container titre_page">
     <div class="row py-lg-5">
         <div class="col-lg-6 col-md-8 mx-auto">
-            <h2 class="fw-light titre_page ">Reserver une voiture</h2>
+            <h2 class="fw-light titre_page ">Essai pour une voiture</h2>
             <p class="lead text-muted">
-                Vous pouvez par ici réserver un rendez vous pour une voiture.
-                Il suffit juste d'entré sa marque et son model pour la réserver.
+                Vous pouvez, ici, réservez un rendez-vous pour un essai de voiture.<br>
+                Il vous suffit d’entrer sa marque et son modèle pour la réserver.
             </p>
         </div>
     </div>
@@ -88,15 +88,19 @@ if(isset($_POST['submit_valid_resv_voit'])){
 <form action="<?php print $_SERVER['PHP_SELF'];?>" method="POST">
     <div class="container" id="aj_reserv_voit" style="visibility:hidden;">
         <div class="row">
-            <div class="col-md-4 mb-3">
+            <div class="col-md-3 mb-3">
                 <label for="id_reserv_voiture">ID Voiture</label>
                 <input type="text" class="form-control" id="id_reserv_voiture" name="id_reserv_voiture" placeholder="25" required>
             </div>
-            <div class="col-md-4 mb-4">
+            <div class="col-md-4 mb-3">
                 <label for="date_rdv">Date du rendez-vous</label><br>
                 <input class="form-control" id="date_rdv" name="date_rdv" type="date">
             </div>
-            <div class="col-md-4 mb-3">
+            <div class="col-md-2 mb-3">
+                <label for="heure_rdv">Heure du rendez-vous</label><br>
+                <input class="form-control" id="date_rdv" name="heure_rdv" type="time">
+            </div>
+            <div class="col-md-3 mb-3">
                 <br>
                 <button class="btn btn-primary btn-lg btn-block" type="submit" id="submit_valid_resv_voit" name="submit_valid_resv_voit" value="Envoyer">Valider</button>
             </div>

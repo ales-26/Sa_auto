@@ -109,6 +109,17 @@ a{
     font-family: Verdana;
 }
 
+.liste_reserv {
+    font-family: Verdana;
+    font-size: 1.0rem;
+}
+
+.titre_reserv {
+    font-family: Verdana;
+    font-size: 1.2rem;
+    color: black;
+}
+
 .btn_card,.btn_card2{
     font-family: Verdana;
     font-size: 1.2rem;
@@ -169,3 +180,4 @@ a{
     font-size: 1.8rem;
     color: green;
 }
+

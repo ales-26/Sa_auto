@@ -12,11 +12,14 @@ if($moto==null){;
             <div class="col-lg-6">
                 <br><br><h1><b>Désolée..... </b></h1><br>
                 <p class="pg404">
-                    Aucune voiture avec ces caractéristiques trouvés ...<br>
+                    Aucune moto avec ces caractéristiques trouvés ...<br>
                 </p>
             </div>
             <div class="col-lg-6">
                 <img src="./admin/images/Logo/logo_404.jpg" class="img-fluid" alt="image">
+            </div>
+            <div class="col-lg-6">
+                <button type="submit" class="btn btn-primary" onclick="window.location.href='index_.php?page=accueil.php';">Retour accueil</button>
             </div>
         </div>
     </div><br><br>
@@ -145,4 +148,4 @@ while($i<$nbr){
     }
     }
 ?>
-<br>
+<br><br><br>

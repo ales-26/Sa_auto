@@ -35,7 +35,6 @@ if(isset($_POST['submit'])){
             <meta http-equiv="refresh": content="0;URL=./user/index_user.php?page=accueil_user.php">
             <?php
         } else {?>
-
                 <div class="alert alert-danger text-center tt" role="alert">
                     Identifiant et/ou mot de passe incorrect !!
                 </div>
@@ -67,8 +66,6 @@ if(isset($_POST['submit'])){
         </div>
     </div>
 </div>
-
-
 
 
 <div class="container">
@@ -129,7 +126,7 @@ if(isset($_POST['submit'])){
                             <button type="submit" class="btn btn-primary" name="submit">Se connecter</button>
                         </form>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="index_.php?page=pages404.php">Inscriptions</a>
+                        <a class="dropdown-item" href="index_.php?page=inscription.php">Inscriptions</a>
                     </div>
                 </div>
             </form>

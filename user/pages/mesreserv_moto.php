@@ -14,7 +14,7 @@ if(isset($_SESSION['user'])){
                     <div class="col-lg-6">
                         <br><br><h1><b>Désolée..... </b></h1><br>
                         <p class="pg404">
-                            Aucune réservation à été faite ... <br>
+                            Aucune réservation n'a été faite...<br>
                         </p>
                     </div>
                     <div class="col-lg-6">
@@ -33,7 +33,7 @@ if(isset($_SESSION['user'])){
             <div class="col-lg-6 col-md-8 mx-auto">
                 <h2 class="fw-light titre_page ">Mes réservations de moto</h2>
                 <p class="lead text-muted">
-                    Voici la liste de toutes vos réservation, vous pouvez modifier la date en nous contactant.
+                    Voici la liste de toutes vos réservations, vous pouvez modifier la date en nous contactant.
                 </p>
                 <p>
                     <a href="index_user.php?page=reservvoiture.php" class="btn btn-primary my-2">Réserver une voiture</a>
@@ -53,7 +53,8 @@ if(isset($_SESSION['user'])){
                 <th scope="col">Modele</th>
                 <th scope="col">Carburant</th>
                 <th scope="col">Prix</th>
-                <th scope="col">Date du rendez vous</th>
+                <th scope="col">Date du rendez-vous</th>
+                <th scope="col">Heure du rendez-vous</th>
             </tr>
             </thead>
             <tbody>
@@ -68,7 +69,7 @@ if(isset($_SESSION['user'])){
                     <td><?php print $reserv[$i]->carburant;?></td>
                     <td><?php print $reserv[$i]->prix;?></td>
                     <td><?php print $reserv[$i]->date_rdv;?></td>
-
+                    <td><?php print $reserv[$i]->heure_rdv;?></td>
                 </tr>
                 <?php
                 $i=$i+1;

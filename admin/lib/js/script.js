@@ -339,7 +339,7 @@ $(document).ready(function(){
             url: '../admin/lib/php/ajax/ajaxRechercheReservation.php',
             success: function (data){
                 var idreserv ="" ,idclient="",nomclient="",prenomclient="";
-                var idvoit="",idmoto="",datereserv="",daterdv="";
+                var idvoit="",idmoto="",datereserv="",daterdv="",heurerdv="";
                 $.each(data, function (i, valeur) {
                    $.each(valeur, function (j, val) {
                         idreserv+=data[i][j].id_reservation+'<br><br>';
@@ -350,6 +350,7 @@ $(document).ready(function(){
                         idmoto+=data[i][j].id_moto+'<br><br>';
                         datereserv+=data[i][j].date_reserv+'<br><br>';
                         daterdv+=data[i][j].date_rdv+'<br><br>';
+                        heurerdv+=data[i][j].heure_rdv+'<br><br>';
                    });
 
                    if (idreserv !== "") {
@@ -361,6 +362,7 @@ $(document).ready(function(){
                         $('#id_moto_reserv').html(idmoto);
                         $('#date_reserv_reserv').html(datereserv);
                         $('#date_rdv_reserv').html(daterdv);
+                        $('#heure_rdv_reserv').html(heurerdv);
                        $('#table_reserv').css({
                            'visibility':'visible'
                        });
@@ -381,7 +383,7 @@ $(document).ready(function(){
             url: '../admin/lib/php/ajax/ajaxRechercheAllReserv.php',
             success: function (data){
                 var idreserv ="" ,idclient="",nomclient="",prenomclient="";
-                var idvoit="",idmoto="",datereserv="",daterdv="";
+                var idvoit="",idmoto="",datereserv="",daterdv="",heurerdv="";
                 $.each(data, function (i, valeur) {
                     $.each(valeur, function (j, val) {
                         idreserv+=data[i][j].id_reservation+'<br><br>';
@@ -392,6 +394,7 @@ $(document).ready(function(){
                         idmoto+=data[i][j].id_moto+'<br><br>';
                         datereserv+=data[i][j].date_reserv+'<br><br>';
                         daterdv+=data[i][j].date_rdv+'<br><br>';
+                        heurerdv+=data[i][j].heure_rdv+'<br><br>';
                     });
 
                     if (idreserv !== "") {
@@ -403,6 +406,7 @@ $(document).ready(function(){
                         $('#id_moto_reserv').html(idmoto);
                         $('#date_reserv_reserv').html(datereserv);
                         $('#date_rdv_reserv').html(daterdv);
+                        $('#heure_rdv_reserv').html(heurerdv);
                         $('#table_reserv').css({
                             'visibility':'visible'
                         });
@@ -514,9 +518,4 @@ $(document).ready(function(){
             }
         });
     });
-
-
 })
-
-
-

@@ -10,7 +10,10 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto ">
                 <li class="nav-item active nav nav-pills">
-                    <a class="nav-link active" aria-current="page" href="./index.php?page=accueil_admin.php">Admin</a>
+                    <a class="nav-link active" aria-current="page" href="./index.php?page=accueil_admin.php">Accueil</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link"  href="./index.php?page=gere_admin.php"><span class="button_nav">Gérer</span></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link " href="./index.php?page=voiture.php"><span class="button_nav">Voiture</span></a>

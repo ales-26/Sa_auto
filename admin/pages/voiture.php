@@ -1,4 +1,6 @@
 <?php
+include('./lib/php/verifier_connexion.php');
+if(isset($_SESSION['admin'])){
 $liste = new VoitureBD($cnx);
 $voiture = $liste->getvoiture();
 $nbr = count($voiture);
@@ -9,7 +11,7 @@ $nbr = count($voiture);
         <div class="col-lg-6 col-md-8 mx-auto">
             <h2 class="fw-light titre_page ">Nos Voitures</h2>
             <p class="lead text-muted">
-                Voici notre large selection de voitures toutes marques. Sur demande nous pouvons vous les faire essayer sans engagement.
+                Voici notre large sélection de voitures toutes marques. Sur demande, nous pouvons vous les faire essayer sans engagement.
             </p>
             <p>
                 <a href="./index.php?page=new.php" class="btn btn-primary my-2">Nouveauté</a>
@@ -89,3 +91,4 @@ if ($i<$nbr){?>
 }
 ?>
 <br>
+<?php } ?>

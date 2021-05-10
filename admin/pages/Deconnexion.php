@@ -15,4 +15,4 @@ session_destroy();
         </div>
     </div>
 </section>
-<meta http-equiv="refresh": content="2;URL=../index_?page=accueil.php">
+<meta http-equiv="refresh": content="2;URL=../index_.php?page=accueil.php">

@@ -21,6 +21,9 @@ if($voiture==null){;
             <div class="col-lg-6">
                 <img src="../admin/images/Logo/logo_404.jpg" class="img-fluid" alt="image">
             </div>
+            <div class="col-lg-6">
+                <button type="submit" class="btn btn-primary" onclick="window.location.href='index_user.php?page=accueil_user.php';">Retour accueil</button>
+            </div>
         </div>
     </div><br><br>
     <?php

@@ -1,4 +1,6 @@
 <?php
+include('./lib/php/verifier_connexion.php');
+if(isset($_SESSION['admin'])){
 $liste = new MotoBD($cnx);
 $moto = $liste->getMoto();
 $nbr = count($moto);
@@ -9,7 +11,7 @@ $nbr = count($moto);
         <div class="col-lg-6 col-md-8 mx-auto">
             <h2 class="fw-light titre_page ">Nos Moto</h2>
             <p class="lead text-muted">
-                Voici notre large selection de moto toutes marques. Sur demande nous pouvons vous les faire essayer sans engagement.
+                Voici notre large sélection de motos toutes marques. Sur demande, nous pouvons vous les faire essayer sans engagement.
             </p>
             <p>
                 <a href="./index.php?page=new.php" class="btn btn-primary my-2">Nouveauté</a>
@@ -87,4 +89,4 @@ $i=$i+1;
 }
 ?>
 <br>
-
+<?php } ?>

@@ -35,7 +35,7 @@ if(isset($_SESSION['user'])){
     <div class="row">
         <div class="col-md-2 mb-3"></div>
         <div class="col-md-8 mb-3">
-            <label for="mail_client">mail</label>
+            <label for="mail_client">E-Mail</label>
             <input type="text" class="form-control" name="mail" id="<?php print $client[0]->mail;?>" value="<?php print $client[0]->mail;?>" required>
         </div>
         <div class="col-md-2 mb-3"></div>
@@ -44,7 +44,7 @@ if(isset($_SESSION['user'])){
     <div class="row">
         <div class="col-md-2 mb-3"></div>
         <div class="col-md-8 mb-3">
-            <label for="tel_client">tel</label>
+            <label for="tel_client">Téléphone</label>
             <input type="text" class="form-control" name="tel" id="<?php print $client[0]->tel;?>" value="<?php print $client[0]->tel;?>" required>
         </div>
         <div class="col-md-2 mb-3"></div>
@@ -57,7 +57,7 @@ if(isset($_SESSION['user'])){
             <input type="text" class="form-control" name="rue" id="<?php print $client[0]->rue;?>" value="<?php print $client[0]->rue;?>" required>
         </div>
         <div class="col-md-2 mb-3">
-            <label for="numero_client">numero</label>
+            <label for="numero_client">Numéro</label>
             <input type="text" class="form-control" name="numero" id="<?php print $client[0]->numero;?>" value="<?php print $client[0]->numero;?>" required>
         </div>
         <div class="col-md-2 mb-3"></div>
@@ -66,18 +66,18 @@ if(isset($_SESSION['user'])){
     <div class="row">
         <div class="col-md-2 mb-3"></div>
         <div class="col-md-3 mb-3">
-            <label for="cp_client">cp</label>
+            <label for="cp_client">Code postal</label>
             <input type="text" class="form-control" name="cp" id="<?php print $client[0]->cp;?>" value="<?php print $client[0]->cp;?>" required>
         </div>
         <div class="col-md-5 mb-3">
-            <label for="ville_client">ville</label>
+            <label for="ville_client">Ville</label>
             <input type="text" class="form-control" name="ville" id="<?php print $client[0]->ville;?>" value="<?php print $client[0]->ville;?>" required>
         </div>
         <div class="col-md-2 mb-3"></div>
     </div><br><br>
     <div class="row">
         <div class="col-md-2 mb-3"></div>
-        <button class="col-md-8 mb-3 btn btn-primary btn-lg btn-block" type="submit" name="rechercher_voiture" id="rechercher_voiture">Mis à jour</button>
+        <button class="col-md-8 mb-3 btn btn-primary btn-lg btn-block" type="submit" name="maj" id="maj">Mis à jour</button>
     </div>
 </div><br><br><br><br>
 

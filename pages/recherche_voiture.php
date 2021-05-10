@@ -1,7 +1,5 @@
 <?php
 $liste_voit = new VoitureBD($cnx);
-$voiture = $liste_voit->getNewVoiture();
-$nbr = count($voiture);
 $voiture2 = $liste_voit->getVoituremarque();
 $nbrvoit = count($voiture2);
 ?>
@@ -10,20 +8,20 @@ $nbrvoit = count($voiture2);
         <div class="col-lg-6 col-md-8 mx-auto">
             <h2 class="fw-light titre_page ">Recherche de voiture </h2>
             <p class="lead text-muted">
-                Vous pouvez par ici lancé une recherche complete pour une voiture.
-                Afinnée votre recherche au maximum pour enfin trouver la voiture de vos rêves.
+                Vous pouvez par ici lancer une recherche complète pour une voiture.
+                Affiner votre recherche au maximum pour, enfin, trouver la voiture de vos rêves.
             </p>
         </div>
     </div>
 </section>
 
 
-<form action="<?php print $_SERVER['PHP_SELF']; ?>" method="get">
+<form action="index_.php?page=resultat_rech_long_voit.php" method="post">
     <div class="container">
         <div class="row">
             <div class="col-md-4 mb-3">
-                <label for="marque">Marque</label>
-                <select class="custom-select d-block w-100" id="marque_voiture" required>
+                <label for="marque_voiture_rech_log">Marque</label>
+                <select class="custom-select d-block w-100" name="marque_voiture_rech_log" id="marque_voiture_rech_log" required>
                     <option value="">Choisir...</option>
                     <?php
                     for($i=0;$i<$nbrvoit;$i++){
@@ -34,13 +32,13 @@ $nbrvoit = count($voiture2);
             </div>
 
             <div class="col-md-4 mb-3">
-                <label for="model_voiture">Modele</label>
-                <input type="text" class="form-control" id="model_voiture" placeholder="Golf" required>
+                <label for="model_voiture_rech_log">Modele</label>
+                <input type="text" class="form-control"  name="model_voiture_rech_log" id="model_voiture_rech_log" placeholder="Golf" required>
             </div>
 
             <div class="col-md-4 mb-3">
-                <label for="carbu_voiture">Carburant</label>
-                <select class="custom-select d-block w-100" id="carbu_voiture" >
+                <label for="carbu_voiture_rech_log">Carburant</label>
+                <select class="custom-select d-block w-100"  name="carbu_voiture_rech_log" id="carbu_voiture_rech_log" required>
                     <option value="">Carburant...</option>
                     <option value="Essence">Essence</option>
                     <option value="Diesel">Diesel</option>
@@ -52,44 +50,20 @@ $nbrvoit = count($voiture2);
 
         <div class="row">
             <div class="col-md-4 mb-3">
-                <label for="puissance_voiture">Puissance</label>
-                <input type="number" class="form-control" id="puissance_voiture" placeholder="75">
+                <label for="annee_voiture_rech_log">Annee minimum</label>
+                <input type="number" class="form-control"  name="annee_voiture_rech_log" id="annee_voiture_rech_log" placeholder="2021" required>
             </div>
 
             <div class="col-md-4 mb-3">
-                <label for="annee_voiture">Annee</label>
-                <input type="number" class="form-control" id="annee_voiture" placeholder="2021">
+                <label for="prix_min_voiture_rech_log">Prix minimum </label>
+                <input type="number" class="form-control"  name="prix_min_voiture_rech_log" id="prix_min_voiture_rech_log" placeholder="1 000" required>
             </div>
 
             <div class="col-md-4 mb-3">
-                <label for="km_voiture">Kilométre</label>
-                <input type="number" class="form-control" id="km_voiture" placeholder="120 000">
+                <label for="prix_max_voiture_rech_log">Prix maximum</label>
+                <input type="number" class="form-control"  name="prix_max_voiture_rech_log" id="prix_max_voiture_rech_log" placeholder="30 000" required>
             </div>
         </div>
-
-        <div class="row">
-            <div class="col-md-4 mb-3">
-                <label>Boite de vitesse</label>
-                <div class="custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" id="automatique_voiture">
-                    <label class="custom-control-label" for="automatique_voiture">Automatique</label>
-                </div>
-                <div class="custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" id="manuel_voiture">
-                    <label class="custom-control-label" for="manuel_voiture">Manuel</label>
-                </div>
-            </div>
-
-            <div class="col-md-4 mb-3">
-                <label for="prix_min_voiture">Prix minimum </label>
-                <input type="number" class="form-control" id="prix_min_voiture" placeholder="1 000">
-            </div>
-
-            <div class="col-md-4 mb-3">
-                <label for="prix_max_voiture">Prix maximum</label>
-                <input type="number" class="form-control" id="prix_max_voiture" placeholder="30 000">
-            </div>
-        </div>
-        <button class="btn btn-primary btn-lg btn-block" type="submit" id="rechercher_voiture">Rechercher</button>
+        <button class="btn btn-primary btn-lg btn-block" type="submit" id="rechercher_long_voiture">Rechercher</button>
     </div>
-</form><br>
+</form><br><br><br><br><br>

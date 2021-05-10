@@ -89,7 +89,7 @@ class ClientBD extends Client{
             while ($d = $_resultset->fetch()){
                 $_data[] = new client($d);
             }
-            //var_dump($_data);
+
             return $_data;
 
         } catch(PDOException $e){
@@ -109,5 +109,26 @@ class ClientBD extends Client{
         }
     }
 
+    public function NewClient($nom,$prenom,$mail,$tel,$rue,$numero,$cp,$ville,$identif,$mdp){
+        try{
+            $query = "select Ajout_client(:nom,:prenom,:mail,:tel,:rue,:numero,:cp,:ville,'membre',:identif,:mdp)as retour";
+            $_resultset = $this->_db->prepare($query);
+            $_resultset->bindValue(':nom', $nom);
+            $_resultset->bindValue(':prenom', $prenom);
+            $_resultset->bindValue(':mail', $mail);
+            $_resultset->bindValue(':tel', $tel);
+            $_resultset->bindValue(':rue', $rue);
+            $_resultset->bindValue(':numero', $numero);
+            $_resultset->bindValue(':cp', $cp);
+            $_resultset->bindValue(':ville', $ville);
+            $_resultset->bindValue(':identif', $identif);
+            $_resultset->bindValue(':mdp', $mdp);
+            $_resultset->execute();
+            $retour =$_resultset->fetchColumn(0);
 
+            return $retour;
+        }catch(PDOException $e){
+            print "Echec ".$e->getMessage();
+        }
+    }
 }

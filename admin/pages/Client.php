@@ -9,8 +9,8 @@ if(isset($_SESSION['admin'])){
         <div class="col-lg-6 col-md-8 mx-auto">
             <h2 class="fw-light titre_page ">Les clients</h2>
             <p class="lead text-muted">
-                <br>Voici la recherche de tous les membre affilié à notre site web.
-                Faite une recherche par numero de téléphone, ou afficher tous pour tus voir.
+                <br>Voici la recherche de tous les membres affiliés à notre site web.<br>
+                Faite une recherche par numéro de téléphone, ou afficher tous les membres.
             </p><br>
             <p>
                 <form action="<?php print $_SERVER['PHP_SELF'];?>" method="get">

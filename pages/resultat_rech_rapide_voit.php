@@ -18,6 +18,9 @@ if($voiture==null){;
             <div class="col-lg-6">
                 <img src="./admin/images/Logo/logo_404.jpg" class="img-fluid" alt="image">
             </div>
+            <div class="col-lg-6">
+                <button type="submit" class="btn btn-primary" onclick="window.location.href='index_.php?page=accueil.php';">Retour accueil</button>
+            </div>
         </div>
     </div><br><br>
     <?php
@@ -148,4 +151,4 @@ if ($i<$nbr){?>
         }
 }
 ?>
-<br>
+<br><br><br>

@@ -1,5 +1,4 @@
 <?php
-
 include('./lib/php/verifier_connexion.php');
 $alert=0;
 if (isset($_SESSION['admin'])){
@@ -22,8 +21,8 @@ $nbr = count($client);
         <div class="col-lg-6 col-md-8 mx-auto">
             <h2 class="fw-light titre_page ">Listes de tous les admin</h2>
             <p class="lead text-muted">
-                Voici la liste de tous les même admin de notre site web.
-                Vous pouvez en ajouter, en entrant l'id du futur admin.
+                Voici la liste de tous les admin de notre site web.
+                Vous pouvez en ajouter, en entrant l’id du futur admin.
             </p>
             <p>
                 <a href="index.php?page=Client.php" class="btn btn-primary my-2">Client</a>
@@ -100,8 +99,4 @@ $nbr = count($client);
         <div id="alert" class="alert alert-danger" role="alert"> Transaction refusé !</div> <?php } ?>
 </section>
 
-
-
 <?php } ?>
-
-

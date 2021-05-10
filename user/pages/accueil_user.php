@@ -49,7 +49,7 @@ if(isset($_SESSION['user'])){
                             </div>
                             <div class="modal-body">
                                 <div class="alert alert-info" role="alert">
-                                    Quel type de véhicule voulez-vous réservez ?
+                                    Quel type de véhicule voulez-vous réservez un essaie ?
                                 </div>
                             </div>
                             <div class="modal-footer">
